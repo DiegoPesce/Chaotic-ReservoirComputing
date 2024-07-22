@@ -57,7 +57,6 @@ for i, structure in enumerate(structures):
         args_str += f"{key}={args[key]}_"
 
     print(f"Loss: {Decimal(loss):.2E} - Parameters: {args}")
-    #torch.save(model.state_dict(), f"Models/R3BP/ESNPCA_{data_filename}_optimization/best_model_{args_str}.pth")
 
     try:
         pred_gen = model.generate(input_gen, n_gen)
