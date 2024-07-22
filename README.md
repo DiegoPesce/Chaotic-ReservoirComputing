@@ -1,7 +1,4 @@
-The core of the model implemented consists in applying a standard scaler to the hidden states generated recursively by the reservoir and finally squeezing the information applying a PCA on the scaled states. This allows to extract the useful information from the reservoir without discarding (as for LASSO regression) or suppressing (as for Ridge regression) the components of the reservoir deemed as not meaningful, but instead by combining them in the most informative way. After the PCA has been applied a simple Linear regression concludes the training process, the obtained fitted matrix and bias will compose the final step of the reservoir scheme in @rc. \
-The procedure works as follows
-$
-h_t = (1 - \l\r) dot h_(t-1) + \l\r dot (tanh(W^"in" x_t + W^"res" h_(t-1))) \
-tilde(h)_t = P C A(h_t) space arrow space y_t = W^"out"tilde(h)_t + b
-$
-where $\l\r$ is the _leaking rate_, which describe how much of the previous step information is passed onto the current one. Tuning the leaking rate allows to change the memory of the reservoir, thus it is a fundamental parameter of such model. The number of components and the reservoir size (the dimensionality of $h_t$) are also fundamental parameters in order to extract the most possible information from the reservoir. The spectral radius of the $W^"res"$ matrix is associated to the memory capacity of the model but also to the _Echo State Property_ and it has to be finetuned too.
+## Reservoir
+$h_t = (1 - lr) \times h_{t-1} + lr \times tanh(W^{in} x_t + W^{res} h_{t-1})$ 
+## Readout
+$\tilde{h}_t = PCA(h_t) \space \rightarrow \space y_t = W^{out}\tilde{h}_t + b$
