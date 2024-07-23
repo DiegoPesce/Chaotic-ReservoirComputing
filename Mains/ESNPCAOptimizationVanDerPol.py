@@ -24,9 +24,7 @@ n_input_gen = input_gen.size(0)
 
 models_structures = {
     'reservoir_size':[4096],
-    'components':[0.001,0.005,0.01,0.03,0.05],
-    'spectral_radius':[0.7,0.9,1],
-    'leaking_rate':[0.6,0.9]
+    'components':[0.001,0.005,0.01,0.03,0.05]
 }
 keys, values = zip(*models_structures.items())
 structures = [dict(zip(keys, v)) for v in itertools.product(*values)]
@@ -37,8 +35,8 @@ for i, structure in enumerate(structures):
     search_space = {
         'components':[structure['components']], 
         'reservoir_size':[structure['reservoir_size']],
-        'spectral_radius':[structure['spectral_radius']],
-        'leaking_rate':[structure['leaking_rate']],
+        'spectral_radius':[0.7,0.9,1],
+        'leaking_rate':[0.6,0.9],
         'sparsity':[0.1],  
         'warmup':[100],
         'seed':[0]

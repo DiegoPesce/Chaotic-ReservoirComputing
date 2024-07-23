@@ -1,6 +1,5 @@
 import torch
 import torch.functional as F
-# https://medium.com/@tpyrt1069098/there-are-14-loss-functions-for-regression-tasks-you-know-several-of-them-5ecd5e77a599
 
 # loss weighted as criterion
 def NormalizedMeanSquaredError(y_pred, y_true):

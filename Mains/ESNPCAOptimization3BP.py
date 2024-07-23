@@ -24,7 +24,7 @@ n_gen = target_gen.size(0)
 n_input_gen = input_gen.size(0)
 
 models_structures = {
-    'reservoir_size':[4096],
+    'reservoir_size':[2048],
     'components':[0.001,0.003,0.004,0.005,0.006],
     'spectral_radius':[0.5,0.7,0.9],
     'leaking_rate':[0.6,0.8,1]
